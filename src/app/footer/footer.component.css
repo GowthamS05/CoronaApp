@@ -1,0 +1,7 @@
+.width100{
+    width:100%;
+}
+a { color: inherit; } 
+.is-active{
+    color:blue;
+}

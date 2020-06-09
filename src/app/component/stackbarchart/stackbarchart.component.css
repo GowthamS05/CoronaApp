@@ -1,0 +1,110 @@
+
+figure {
+	margin: 0 auto;
+	max-width: 1100px;
+	position: relative;
+}
+.graphic {
+	padding: 10px 0 0 10px;
+}
+
+@keyframes expand {
+	from {width: 0%;}
+	to {width: 100%;}
+}
+@media screen and (min-width: 768px) {
+	@keyframes expand {
+		from {width: 0%;}
+		to {width: calc(100% - 75px);}
+	}
+}
+.chart {
+	overflow: hidden;
+	width: 0%;
+	animation: expand 1.5s ease forwards;
+}
+.row + .row .chart {
+	animation-delay: .2s;
+}
+.row + .row + .row .chart {
+	animation-delay: .4s;
+}
+.block {
+	display: block;
+	height: 100px;
+	color: #fff;
+	font-size: .75em;
+	float: left;
+	background-color: rgb(245, 245, 9);
+	position: relative;
+	overflow: hidden;
+	opacity: 1;
+	transition: opacity, .3s ease;
+	cursor: pointer;
+}
+.block:nth-of-type(2),
+.legend li:nth-of-type(2):before {
+	background-color: rgb(5, 143, 85);
+}
+.block:nth-of-type(3),
+.legend li:nth-of-type(3):before {
+	background-color: rgb(214, 7, 7);
+}
+
+
+.block:hover {
+	opacity: .65;
+}
+.value {
+	display: block;
+	line-height: 1em;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%);
+}
+.x-axis {
+    text-align: center;
+	padding: .5em 0 2em;
+}
+.y-axis {
+	height: 20px;
+    transform: translate(-32px,170px) rotate(270deg);
+    position: absolute;
+    left: 0;
+}
+.legend {
+    margin: 0 auto;
+    padding: 0;
+	font-size: .9em;
+}
+.legend li {
+    display: inline-block;
+    padding: .25em 1em;
+    line-height: 1em;
+}
+.legend li:before {
+    content: "";
+    margin-right: .5em;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+	background-color:  rgb(245, 245, 9);
+}
+@media screen and (min-width: 768px) {
+	h6 {
+		padding: 0;
+		width: 75px;
+		float: left;
+		line-height: 100px;
+	}
+	.block {
+		font-size: 1em;
+	}
+	.legend {
+		width: 50%;
+	}
+}
+.card{
+	width:100%;
+}

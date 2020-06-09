@@ -1,0 +1,53 @@
+<div class="mt-2">
+  <div class="col-12">
+    <ngx-table [configuration]="configuration" [data]="data" #table [detailsTemplate]="detailsTemplate"
+      [columns]="columns" [loadingTemplate]="loadingTemplate">
+      <ng-template let-row let-index="index">
+        <td>
+          {{row.country }}
+        </td>
+        <td>
+          {{row.cases | number:'1.0':'en-US'}}
+        </td>
+        <td *ngIf="!isMobile" class="green">
+          {{row.recovered===null?0:row.recovered | number:'1.0':'en-US'}}
+        </td>
+        <td *ngIf="!isMobile" class="orange">
+          {{row.active===null?0:row.active | number:'1.0':'en-US'}}
+        </td>
+        <td *ngIf="!isMobile" class="red">
+          {{row.deaths===null?0:row.deaths | number:'1.0':'en-US'}}
+        </td>
+        <td>
+          <button class="btn btn-primary" id="expandButton-{{index}}" (click)="onRowClickEvent($event, index)">
+            <i class="icon icon-arrow-left" *ngIf="!toggledRows.has(index)"></i>
+            <i class="icon icon-arrow-down" *ngIf="toggledRows.has(index)"></i>
+            Details >>
+          </button>
+        </td>
+      </ng-template>
+    </ngx-table>
+    <ng-template #detailsTemplate let-row>
+      <div>
+        <h4>{{row.country }}</h4>
+        <ul>
+          <li *ngIf="isMobile">Recovered : <span
+              class="green">{{row.recovered===null?0:row.recovered | number:'1.0':'en-US'}}</span></li>
+          <li *ngIf="isMobile">Active : <span
+              class="orange">{{row.active===null?0:row.active | number:'1.0':'en-US'}}</span></li>
+          <li *ngIf="isMobile">Deaths : <span
+              class="red">{{row.deaths===null?0:row.deaths | number:'1.0':'en-US'}}</span></li>
+          <li>Today Cases : <span class="">{{row.todayCases===null?0:row.todayCases | number:'1.0':'en-US'}}</span></li>
+          <li>Today Deaths : <span
+              class="red">{{row.todayDeaths===null?0:row.todayDeaths | number:'1.0':'en-US'}}</span></li>
+          <li>Critical : <span class="orange">{{row.critical===null?0:row.critical | number:'1.0':'en-US'}}</span></li>
+        </ul>
+      </div>
+    </ng-template>
+  </div>
+</div>
+<ng-template #loadingTemplate>
+  <td [attr.colspan]="columns.length">
+    <div class="loader">Loading...</div>
+  </td>
+</ng-template>

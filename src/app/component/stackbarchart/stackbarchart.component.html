@@ -1,0 +1,28 @@
+<div class="card card-1">
+  <figure>
+    <div class="graphic" *ngIf="data">
+      <h4>Out of {{data.confirmed |  number : '1.0-2'}} Confirmed Cases </h4>
+      <div class="row">
+        <div class="chart">
+          <span class="block" [style.width.%]="confirmedPercent" title="">
+            <span class="value">{{confirmedPercent}}%</span>
+          </span>
+          <span class="block" [style.width.%]="recoveredPercent" title="">
+            <span class="value">{{recoveredPercent}}%</span>
+          </span>
+          <span class="block" [style.width.%]="deathsPercent" title="">
+            <span class="value">{{deathsPercent}}%</span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="x-axis">
+      <ul class="legend">
+        <li>Active</li>
+        <li>Recovered</li>
+        <li>Deaths</li>
+      </ul>
+    </div>
+  </figure>
+</div>

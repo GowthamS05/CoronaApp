@@ -1,0 +1,51 @@
+.card{
+    width:90%;
+    height: calc(100vh - 50px);
+}
+.flexColumn{
+    display:flex;
+    flex-direction:column;
+justify-content:space-around;
+height:100%;
+align-items: center;
+
+}
+.badgeLine {
+    background-color: transparent;
+    color: #95a5a6;
+}
+.badge {
+    box-sizing: border-box;
+    display: inline-block;
+    color: #ffffff;
+    border-radius: 3rem;
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 400;
+    padding: .05rem .8rem .1rem;
+    line-height: inherit;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5px;
+}
+.orange{
+background-color: orange;
+}
+.red{
+    background-color: red;
+
+}
+.green{
+    background-color: green;
+
+}
+.black{
+    background-color: #2c3e50;
+    box-shadow: 0 0 0 1px #95a5a6;
+    border-radius: 2px;
+
+}

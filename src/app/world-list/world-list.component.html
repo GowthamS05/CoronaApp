@@ -1,0 +1,8 @@
+<div *ngIf="dataState==='RESOLVING'" class="loader">
+  <div class="loading"></div>
+</div>
+<div *ngIf="dataState==='RESOLVED'" class="flex-column-center">
+  <app-resultcards [data]="cases"></app-resultcards>
+  <app-resultcards [data]="recovered"></app-resultcards>
+  <app-resultcards [data]="deaths"></app-resultcards>
+</div>

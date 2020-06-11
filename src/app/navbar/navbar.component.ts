@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ThemeService } from '../theme/theme.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  activeThem = 'lightThemeProps';
+  constructor(private themService: ThemeService) {
+  }
 
   ngOnInit() {
+  }
+  toggleThem() {
+    // refactor this ugly code :) for demo only
+    if (this.activeThem !== 'lightThemeProps') {
+      this.themService.setActiveThem('lightThemeProps');
+      this.activeThem = 'lightThemeProps';
+    } else {
+      this.themService.setActiveThem('darkThemeProps');
+      this.activeThem = 'darkThemeProps';
+    }
   }
 
 }

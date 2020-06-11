@@ -36,7 +36,6 @@ export class AllCountriesComponent extends RootComponent implements OnInit {
   ngOnInit(): void {
     this.configuration = { ...DefaultConfig };
     this.configuration.detailsTemplate = true;
-    this.configuration.searchEnabled = true;
     this.configuration.isLoading = true;
     this.configuration.paginationRangeEnabled = false;
     this.subscribeCountryData();
@@ -46,6 +45,11 @@ export class AllCountriesComponent extends RootComponent implements OnInit {
 
   get isMobile(): boolean {
     return this.innerWidth <= 768;
+  }
+  onChange(name: string): void {
+    this.table.apiEvent({
+      type: API.onGlobalSearch, value: name,
+    });
   }
 
   subscribeCountryData() {
@@ -72,19 +76,19 @@ export class AllCountriesComponent extends RootComponent implements OnInit {
     this.innerWidth = window.innerWidth;
     if (this.isMobile) {
       this.columns = [
-        { key: 'country', title: `Country`, orderBy: 'asc', searchEnabled: true },
-        { key: 'cases', title: 'Cases', searchEnabled: false },
-        { key: '', title: 'More Info', searchEnabled: false },
+        { key: 'country', title: `Country`, orderBy: 'asc' },
+        { key: 'cases', title: 'Cases' },
+        { key: '', title: 'More Info' },
       ];
 
     } else {
       this.columns = [
-        { key: 'country', title: 'Country', orderBy: 'asc', searchEnabled: true },
-        { key: 'cases', title: 'Cases', searchEnabled: false },
-        { key: 'recovered', title: 'Recovered', searchEnabled: false },
-        { key: 'active', title: 'Active', searchEnabled: false },
-        { key: 'deaths', title: 'Deaths', searchEnabled: false },
-        { key: '', title: 'More Info', searchEnabled: false },
+        { key: 'country', title: 'Country', orderBy: 'asc' },
+        { key: 'cases', title: 'Cases' },
+        { key: 'recovered', title: 'Recovered' },
+        { key: 'active', title: 'Active' },
+        { key: 'deaths', title: 'Deaths' },
+        { key: '', title: 'More Info' },
       ];
     }
   }

@@ -1,28 +1,20 @@
-<nav class="navbar fixed-bottom navbar-light bg-light">
+<nav class="navbar fixed-bottom navbar-light navColor">
   <ul class="nav justify-content-center width100">
     <li class="nav-item ml-4 mr-4">
       <a class="nav-link active" [routerLink]="'/world'" [routerLinkActive]="['is-active']"> <i
-          class="fa fa-globe fa-1x"></i>
+          class="fa fa-globe fa-1x footerIcon"></i>
       </a>
-      <small class="form-text text-muted font-weight-bold">
+      <small class="form-text footer-muted font-weight-bold">
         World
       </small>
 
     </li>
     <li class="nav-item ml-4 mr-4">
-      <a class="nav-link" [routerLink]="'/overall'" [routerLinkActive]="['is-active']"><i class="fa fa-table fa-1x"
-          aria-hidden="true"></i>
+      <a class="nav-link" [routerLink]="'/overall'" [routerLinkActive]="['is-active']"><i
+          class="fa fa-table fa-1x footerIcon" aria-hidden="true"></i>
       </a>
-      <small class="form-text text-muted font-weight-bold">
+      <small class="form-text footer-muted font-weight-bold">
         Overall
-      </small>
-    </li>
-    <li class="nav-item ml-4 mr-4">
-      <a class="nav-link" [routerLink]="'/country'" [routerLinkActive]="['is-active']"><i class="fa fa-flag fa-1x"
-          aria-hidden="true"></i>
-      </a>
-      <small class="form-text text-muted font-weight-bold">
-        Country
       </small>
     </li>
   </ul>

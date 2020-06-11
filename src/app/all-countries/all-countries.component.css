@@ -1,6 +1,11 @@
 :host ::ng-deep #table {
-    font-family: 'Roboto'!important;
+    font-family: 'Nunito'!important;
   }
+
+input[type="text"]{ 
+  box-shadow: none;
+  outline: -webkit-focus-ring-color auto 0px;
+}
   .loader,
 .loader:before,
 .loader:after {
@@ -9,7 +14,7 @@
   height: 4em;
 }
 .loader {
-  color: #807fe2;
+  color: var(--table-font)!important;
   text-indent: -9999em;
   margin: 80px auto;
   position: relative;

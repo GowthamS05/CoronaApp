@@ -1,15 +1,64 @@
 
 body, html {
-    font-family: 'Roboto'!important;
+  font-family: 'Nunito', sans-serif !important;
+  background-color:var(--body-background);
   }
 
+  .navColor {
+    background-color: var(--nav-background)!important;
+}
+.navText{
+  color:var(--nav-text-color)!important;
+}
+.searchText{
+  color:var(--search-text)!important;
+}
+.searchInput{
+  background-color: var(--search-background)!important;
+  color:var(--search-font)!important;
+  border: 1px solid var(--search-border)!important;
+  outline:none!important
+}
+.footer-muted{
+  color:var(--footer-text)!important;
+}
+.card-header{
+  color:var(--card-header-color)!important;
+}
+.footerIcon{
+  color:var(--footer-icon)!important;
+}
+.ngx-table{
+ background-color:var(--table-background)!important;
+ color:var(--table-font)!important
+}
+.ngx-table__header-cell{
+  color:var(--table-header)!important;
+}
+.is-active .footerIcon{
+  color:var(--is-Active)!important;
+}
+.ngx-table th,.ngx-table td{
+  border-bottom:1px solid var(--table-border)!important;
+}
+.ngx-pagination li{
+  border:1px solid var(--table-border)!important;
+}
+.ngx-table tbody tr:hover {
+  background:  var(--table-hover)!important;
+}
+
   .card {
-    background: #fff;
+    background:var(--card-background);
+    color:var(--card-font-color)!important;
     border-radius: 2px;
     display: inline-block;
     margin: 1rem;
     position: relative;
     padding-left:20px;
+  }
+  .cardLabel{
+    color:var(--card-font-label)!important;
   }
   
   .card-1 {
@@ -27,7 +76,6 @@ body, html {
     justify-content: center;  
     align-items: center;
     height:calc(100vh - 8vw)
-
   }
   .loading {
     border: 2px solid #f3f3f3 !important;
@@ -48,6 +96,12 @@ body, html {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+  .light{
+    color:lightgrey;
+  }
+  .dark{
+    color:#000
+  }
   .orange{
     color: orange;
     }
@@ -61,4 +115,12 @@ body, html {
     }
     li{
       list-style: none;
+    }
+
+  .shadow{
+    box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);
+    transition: all .3s cubic-bezier(.25,.8,.25,1);
+    }
+    .fontSize{
+      font-size: 1.25rem
     }

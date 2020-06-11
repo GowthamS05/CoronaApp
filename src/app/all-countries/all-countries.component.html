@@ -1,5 +1,11 @@
-<div class="mt-2">
-  <div class="col-12">
+<div>
+  <br />
+  <div class="col-sm-12 form-row">
+    <label class="col-sm-2 col-form-label searchText">Search Information</label>
+    <input class="col-sm-3 form-control searchInput" type="text" id="globalSearch"
+      (input)="onChange($event.target.value)" placeholder="Search Information">
+  </div>
+  <div class="col-12 mt-3">
     <ngx-table [configuration]="configuration" [data]="data" #table [detailsTemplate]="detailsTemplate"
       [columns]="columns" [loadingTemplate]="loadingTemplate">
       <ng-template let-row let-index="index">
@@ -19,7 +25,14 @@
           {{row.deaths===null?0:row.deaths | number:'1.0':'en-US'}}
         </td>
         <td>
-          <button class="btn btn-primary" id="expandButton-{{index}}" (click)="onRowClickEvent($event, index)">
+          <button *ngIf="isMobile" class="btn btn-primary" id="expandButton-{{index}}"
+            (click)="onRowClickEvent($event, index)">
+            <i class="icon icon-arrow-left" *ngIf="!toggledRows.has(index)"></i>
+            <i class="icon icon-arrow-down" *ngIf="toggledRows.has(index)"></i>
+            >>
+          </button>
+          <button *ngIf="!isMobile" class="btn btn-primary" id="expandButton-{{index}}"
+            (click)="onRowClickEvent($event, index)">
             <i class="icon icon-arrow-left" *ngIf="!toggledRows.has(index)"></i>
             <i class="icon icon-arrow-down" *ngIf="toggledRows.has(index)"></i>
             Details >>

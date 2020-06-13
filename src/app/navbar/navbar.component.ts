@@ -8,18 +8,24 @@ import { ThemeService } from '../theme/theme.service';
 })
 export class NavbarComponent implements OnInit {
 
-  activeThem = 'lightThemeProps';
+  darkBorder = 'darkBorder';
+  lightBorder = '';
+  activeThem = 'darkThemeProps';
   constructor(private themService: ThemeService) {
   }
 
   ngOnInit() {
   }
-  toggleThem() {
+  toggleThem(val) {
+    this.darkBorder = '';
+    this.lightBorder = '';
     // refactor this ugly code :) for demo only
-    if (this.activeThem !== 'lightThemeProps') {
+    if (val == 'lightThemeProps') {
       this.themService.setActiveThem('lightThemeProps');
       this.activeThem = 'lightThemeProps';
-    } else {
+      this.lightBorder = 'lightBorder';
+    } else if (val === 'darkThemeProps') {
+      this.darkBorder = 'darkBorder';
       this.themService.setActiveThem('darkThemeProps');
       this.activeThem = 'darkThemeProps';
     }

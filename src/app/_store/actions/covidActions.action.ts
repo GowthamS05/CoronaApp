@@ -1,5 +1,6 @@
 import { OverallListAction } from './getOverallList.action';
 import { CountryListAction } from './getCountryList.action';
+import { StateListAction } from './getStateList.action';
 
 export enum CovidActionsTypes {
     GET_OVERALL_LIST = 'GET_OVERALL_LIST',
@@ -11,9 +12,15 @@ export enum CovidActionsTypes {
     GET_COUNTRY_LIST_RESOLVING = 'GET_COUNTRY_LIST_RESOLVING',
     GET_COUNTRY_LIST_RESOLVED = 'GET_COUNTRY_LIST_RESOLVED',
     GET_COUNTRY_LIST_ERROR = 'GET_COUNTRY_LIST_ERROR',
-    RESET_GET_COUNTRY_LIST = 'RESET_GET_COUNTRY_LIST'
+    RESET_GET_COUNTRY_LIST = 'RESET_GET_COUNTRY_LIST',
+    GET_STATE_LIST = 'GET_STATE_LIST',
+    GET_STATE_LIST_RESOLVING = 'GET_STATE_LIST_RESOLVING',
+    GET_STATE_LIST_RESOLVED = 'GET_STATE_LIST_RESOLVED',
+    GET_STATE_LIST_ERROR = 'GET_STATE_LIST_ERROR',
+    RESET_GET_STATE_LIST = 'RESET_GET_STATE_LIST'
 }
 
 export type CovidActions =
     OverallListAction
-    | CountryListAction;
+    | CountryListAction
+    | StateListAction;

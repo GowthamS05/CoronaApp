@@ -2,8 +2,10 @@
   <div class="navbar-header ">
     <span class="navbar-brand navText">Covid 19</span>
     <span>
-      <i class="fa fa-circle light ml-3 fontSize" aria-hidden="true" (click)="toggleThem()"></i>
-      <i class="fa fa-circle dark ml-3 fontSize" aria-hidden="true" (click)="toggleThem()"></i>
+      <i class="fa fa-circle light ml-3 fontSize {{lightBorder}}" aria-hidden="true"
+        (click)="toggleThem('lightThemeProps')"></i>
+      <i class="fa fa-circle dark ml-3 fontSize {{darkBorder}}" aria-hidden="true"
+        (click)="toggleThem('darkThemeProps')"></i>
     </span>
   </div>
 </nav>

@@ -1,0 +1,71 @@
+<div>
+    <br />
+    <div class="col-sm-12 form-row" *ngIf="autoSearch.length>0">
+        <label class="col-sm-2 col-form-label searchText">Select Indian State</label>
+        <div class="ng-autocomplete col-sm-3">
+            <ng-autocomplete [data]="autoSearch" [isLoading] [searchKeyword]="keyword" (selected)='selectEvent($event)'
+                (inputChanged)='onChangeSearch($event)' [initialValue]="autoSearch[0]"
+                (inputFocused)='onFocused($event)' [placeHolder]="'Select Indian State'" [itemTemplate]="itemTemplate"
+                [notFoundTemplate]="notFoundTemplate">
+            </ng-autocomplete>
+
+            <ng-template #itemTemplate let-item>
+                <a [innerHTML]="item.name"></a>
+            </ng-template>
+            <ng-template #notFoundTemplate let-notFound>
+                <div [innerHTML]="notFound"></div>
+            </ng-template>
+        </div>
+        <label class="col-sm-1 col-form-label searchText"></label>
+        <label class="col-sm-2 col-form-label searchText">Search District</label>
+        <input class="col-sm-3 form-control searchInput" type="text" [(ngModel)]="searchDistrict"
+            (input)="onChange($event.target.value)" placeholder="Search District">
+    </div>
+    <div class="col-12 mt-3">
+        <ngx-table [configuration]="configuration" [data]="tableData" #table [columns]="columns"
+            [detailsTemplate]="detailsTemplate" [loadingTemplate]="loadingTemplate">
+            <ng-template let-row let-index="index">
+                <td>
+                    {{row.district }}
+                </td>
+                <td>
+                    {{row.confirmed | number:'1.0':'en-US'}}
+                </td>
+                <td *ngIf="!isMobile" class="orange">
+                    {{row.active===null?0:row.active | number:'1.0':'en-US'}}
+                </td>
+                <td *ngIf="!isMobile" class="green">
+                    {{row.recovered===null?0:row.recovered | number:'1.0':'en-US'}}
+                </td>
+                <td *ngIf="!isMobile" class="red">
+                    {{row.deaths===null?0:row.deaths | number:'1.0':'en-US'}}
+                </td>
+                <td>
+                    <button *ngIf="isMobile" class="btn btn-primary" id="expandButton-{{index}}"
+                        (click)="onRowClickEvent($event, index)">
+                        <i class="icon icon-arrow-left" *ngIf="!toggledRows.has(index)"></i>
+                        <i class="icon icon-arrow-down" *ngIf="toggledRows.has(index)"></i>
+                        >>
+                    </button>
+                </td>
+            </ng-template>
+        </ngx-table>
+        <ng-template #detailsTemplate let-row>
+            <div>
+                <h4>{{row.district }}</h4>
+                <ul>
+                    <li>Recovered : <span
+                            class="green">{{row.recovered===null?0:row.recovered | number:'1.0':'en-US'}}</span></li>
+                    <li>Active : <span class="orange">{{row.active===null?0:row.active | number:'1.0':'en-US'}}</span>
+                    </li>
+                    <li>Deaths : <span class="red">{{row.deaths===null?0:row.deaths | number:'1.0':'en-US'}}</span></li>
+                </ul>
+            </div>
+        </ng-template>
+    </div>
+    <ng-template #loadingTemplate>
+        <td [attr.colspan]="columns.length">
+            <div class="loader">Loading...</div>
+        </td>
+    </ng-template>
+</div>

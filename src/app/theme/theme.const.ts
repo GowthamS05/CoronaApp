@@ -18,7 +18,8 @@ export const themes = {
         '--table-font': "#50596c",
         '--table-header': "#000",
         '--table-border': '#e7e9ed',
-        '--table-hover': '#f6f8fc'
+        '--table-hover': '#f6f8fc',
+        '--theme-circle': 'lightgrey'
     },
     darkThemeProps: {
         '--card-background': '#24364E',
@@ -39,7 +40,9 @@ export const themes = {
         '--table-font': "#c6d3e7",
         '--table-header': "#11ece5",
         '--table-border': '#24364E',
-        '--table-hover': '#04070d'
+        '--table-hover': '#04070d',
+        '--theme-circle': '#000'
+
 
 
     }

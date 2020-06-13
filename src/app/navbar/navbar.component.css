@@ -1,0 +1,10 @@
+.lightBorder{
+    border: 2px solid lightgrey;
+    padding: 5px;
+    border-radius: 25%;
+}
+.darkBorder{
+    border: 2px solid black;
+    padding: 5px;
+    border-radius: 25%;
+}

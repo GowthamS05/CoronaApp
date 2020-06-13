@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
     providedIn: 'root'
 })
 export class ThemeService {
-    private activeThem = new BehaviorSubject('lightThemeProps');
+    private activeThem = new BehaviorSubject('darkThemeProps');
 
     constructor() { }
 

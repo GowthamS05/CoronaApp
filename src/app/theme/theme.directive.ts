@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
 })
 export class ThemeDirective implements OnInit, OnDestroy {
 
-    private themeName = 'lightThemeProps';
+    private themeName = 'darkThemeProps';
     private themServiceSubscription: Subscription;
     constructor(private elementRef: ElementRef,
         @Inject(DOCUMENT) private document: any,

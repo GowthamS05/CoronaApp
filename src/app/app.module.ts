@@ -1,5 +1,6 @@
 import { environment } from './../environments/environment.prod';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import * as fromCovid from './_store/reducers/covidReducers.reducer';
 import { AppComponent } from './app.component';
@@ -16,16 +17,19 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { AllCountriesComponent } from './all-countries/all-countries.component';
 import { WorldListComponent } from './world-list/world-list.component';
+import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { Routes, RouterModule } from '@angular/router';
 import { TableModule } from 'ngx-easy-table';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { ThemeModule } from './theme/theme.module';
+import { StateWiseComponent } from './state-wise/state-wise.component';
 export const router: Routes = [{
   path: '',
   component: AppComponent,
   children: [
     { path: 'world', component: WorldListComponent },
     { path: 'overall', component: AllCountriesComponent },
+    { path: 'state', component: StateWiseComponent },
     { path: '', redirectTo: 'world', pathMatch: 'full' }
   ]
 }
@@ -40,11 +44,14 @@ export const router: Routes = [{
     FooterComponent,
     AllCountriesComponent,
     WorldListComponent,
+    StateWiseComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     NgrxHelperModule,
+    AutocompleteLibModule,
+    FormsModule,
     ThemeModule,
     RouterModule.forRoot(router),
     StoreModule.forRoot({}),

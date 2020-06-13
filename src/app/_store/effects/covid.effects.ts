@@ -21,5 +21,10 @@ export class CovidEffects extends NgrxEffect {
         type: HttpMethod.GET,
         endpoint: covidEndpoint.GET_COUNTRY_DETAIL
     })
+    @Effect() getStateList$ = super.effect({
+        action: CovidActionsTypes.GET_STATE_LIST,
+        type: HttpMethod.GET,
+        endpoint: covidEndpoint.GET_STATE_DETAIL
+    })
 }
 

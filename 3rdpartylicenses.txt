@@ -72,6 +72,9 @@ MIT
 @ngrx/store-devtools
 MIT
 
+angular-ng-autocomplete
+MIT
+
 bootstrap
 MIT
 The MIT License (MIT)
